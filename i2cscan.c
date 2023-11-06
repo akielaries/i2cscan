@@ -3,16 +3,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/ioctl.h>
 #include <unistd.h>
 #include <getopt.h>
-
-#define VERSION     "0.1.0+git"     // VERSION
-
-// if linux
-#if defined(__linux__)
-#define I2C_SLAVE	0x0703	        // SLAVE ADDRESS
+#if defined(__linux__) || defined(__APPLE__)
+    #include <sys/ioctl.h>
+    #define I2C_SLAVE	0x0703          // SLAVE ADDRESS 
+// I really don't plan for non-linux use but this may help with something
+#elif defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
+    //define something for Windows (32-bit and 64-bit, this part is common)
+    #include <windows.h>
+    #include <devioctl.h>
 #endif
+
+#define VERSION     "0.1.0+git"         // VERSION
 
 // address info struct?
 

@@ -3,3 +3,35 @@ Simple I2C utility for scanning addresses on a given bus just like i2cdetect fro
 but with a different approach. This utility was created from i2cdetect's inability to detect
 all addresses on a given bus, in this utility we write to each register and determine if there
 was a response.
+
+# Usage
+```bash
+$ i2cscan -h
+
+Available options:
+   -h help
+   -v version
+   -l lists all available I2C busses
+   -f fetch all busses & available addresses
+   -b [BUS] specify I2C bus
+   -a scan all addresses
+   -r [FIRST-LAST] scan addresses between FIRST & LAST (int)
+```
+
+* Scan I2C bus `/dev/i2c-1` for any available addresses:
+  ```bash
+  $ i2cscan -b 1 -a
+  Scanning all addresses 0 to 127
+  Found device at I2C address 0x28
+  Found device at I2C address 0x29
+  Found device at I2C address 0x53
+  Found device at I2C address 0x68
+  Found device at I2C address 0x76
+  ```
+* Scan I2C bus `/dev/i2c-1` for addresses between 0x28(40) - 0x2a(42):
+  ```bash
+  $ i2cscan -b 1 -r 40-42
+  Scanning all addresses 40 to 42
+  Found device at I2C address 0x28
+  Found device at I2C address 0x29
+  ```

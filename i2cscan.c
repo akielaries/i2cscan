@@ -126,7 +126,7 @@ int main (int argc, char *argv[]) {
                 flag_bus = 1;
                 break;
 
-            // all addresses
+            // all addresses TODO maybe -a should be for fetch_all and -b used the default range
             case 'a':
                 if (!flag_bus) {
                     printf("an I2C bus must be specified with -b\n");

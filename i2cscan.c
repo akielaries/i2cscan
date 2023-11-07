@@ -21,12 +21,12 @@
 // address info struct?
 
 // scan for available I2C busses
-static void bus_scan() {
+void bus_scan() {
     printf("SCAN FOR I2C BUSSES\n");
 }
 
 // find available addresses on a given I2C bus
-static void addr_scan(const char *bus, int min, int max) {
+void addr_scan(const char *bus, int min, int max) {
     int file;
 
     // iterate through the specified I2C address range
@@ -57,26 +57,26 @@ static void addr_scan(const char *bus, int min, int max) {
 }
 
 // fetch all I2C busses and their addresses
-static void fetch_all() {
+void fetch_all() {
     printf("get every I2C bus and every address on them\n");
 }
 
 // i2cscan binary CLI usage
-static void usage(const char *bin) {
+void usage(const char *bin) {
     printf("Usage: %s [-h] [-v] [-l] [-f] [-b] BUS [-a | -r FIRST-LAST]\n", bin);
     printf("    - BUS is an integer representing the I2C bus name\n");
-    printf("    - FIRST LAST represents the MIN_ADDR/MAX_ADDR addresses to scan\n\n");
+    printf("    - FIRST LAST represents the MIN/MAX addresses to scan\n\n");
 }
 
-static void help() {
+void help() {
     printf("\nAvailable options:\n"
             "   -h help\n"
             "   -v version\n"
             "   -l lists all available I2C busses\n"
             "   -f fetch all busses & available addresses\n"
-            "   -b specify I2C bus\n"
+            "   -b [BUS] specify I2C bus\n"
             "   -a scan all addresses\n"
-            "   -r scan addresses between FIRST & LAST\n"
+            "   -r [FIRST-LAST] scan addresses between FIRST & LAST (int)\n"
             "\n");
 }
 

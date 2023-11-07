@@ -1,3 +1,4 @@
+#include "i2cscan.h"
 #include <fcntl.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -8,7 +9,7 @@
 #if defined(__linux__) || defined(__APPLE__)
     #include <sys/ioctl.h>
     #define I2C_SLAVE	0x0703          // SLAVE ADDRESS 
-// I really don't plan for non-linux use but this may help with something
+// I don't plan for non-linux use but this may help with something
 #elif defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
     //define something for Windows (32-bit and 64-bit, this part is common)
     #include <windows.h>
@@ -63,8 +64,8 @@ static void fetch_all() {
 // i2cscan binary CLI usage
 static void usage(const char *bin) {
     printf("Usage: %s [-h] [-v] [-l] [-f] [-b] BUS [-a | -r FIRST-LAST]\n", bin);
-    printf("BUS is an integer representing the I2C bus name\n");
-    printf("FIRST LAST represents the MIN_ADDR/MAX_ADDR addresses to scan\n\n");
+    printf("    - BUS is an integer representing the I2C bus name\n");
+    printf("    - FIRST LAST represents the MIN_ADDR/MAX_ADDR addresses to scan\n\n");
 }
 
 static void help() {

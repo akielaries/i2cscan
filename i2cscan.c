@@ -6,17 +6,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <getopt.h>
-#if defined(__linux__) || defined(__APPLE__)
-    #include <sys/ioctl.h>
-    #define I2C_SLAVE	0x0703          // SLAVE ADDRESS 
-// I don't plan for non-linux use but this may help with something
-#elif defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
-    //define something for Windows (32-bit and 64-bit, this part is common)
-    #include <windows.h>
-    #include <devioctl.h>
-#endif
+#include <sys/ioctl.h>
 
-#define VERSION     "0.1.0+git"         // VERSION
+#define I2C_SLAVE	0x0703          // SLAVE ADDRESS 
+#define VERSION     "0.1.0+git"     // VERSION
 
 // address info struct?
 

@@ -94,13 +94,13 @@ int main (int argc, char *argv[]) {
             // help
             case 'h':
                 help();
-                exit(EXIT_FAILURE);
+                exit(EXIT_SUCCESS);
                 break;
 
             // version
             case 'v':
                 printf("v%s\n", VERSION);
-                exit(EXIT_FAILURE);
+                exit(EXIT_SUCCESS);
                 break;
 
             case 'l':

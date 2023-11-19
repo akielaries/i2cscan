@@ -35,3 +35,11 @@ Available options:
   Found device at I2C address 0x28
   Found device at I2C address 0x29
   ```
+
+# Installation
+```
+# install
+$ sudo make install
+# uninstall
+$ sudo make uninstall
+```

@@ -9,7 +9,7 @@
 #include <sys/ioctl.h>
 
 #define I2C_SLAVE	0x0703          // SLAVE ADDRESS 
-#define VERSION     "0.1.0+git"     // VERSION
+#define VERSION     "1.0.0+git"     // VERSION
 
 // address info struct?
 

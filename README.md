@@ -17,10 +17,11 @@ Available options:
    -a scan all addresses
    -r [FIRST-LAST] scan addresses between FIRST & LAST (int)
    ** For MCUs **
-   -mmcu [MCU]
+   -mmcu= [MCU]
    Supported MCUs :
        - atmega328
        - atmega2560
+   -dev [DEVICE]
 ```
 
 * Scan I2C bus `/dev/i2c-1` for any available addresses:
@@ -50,6 +51,7 @@ Available options:
 * gcc-avr
 * binutils-avr
 * avrdude
+
 ```
 # install
 $ sudo make install

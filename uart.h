@@ -1,3 +1,8 @@
+/*#ifndef __UART_H__
+#define __UART_H__
+*/
+#include <stdint.h>
+
 struct __file {
     char *        buf;   /* buffer pointer */
     unsigned char unget; /* ungetc() buffer */
@@ -31,4 +36,5 @@ typedef struct __file FILE;
     { .put = p, .get = g, .flags = f, .udata = 0, }
 
 
+//#endif
 

@@ -16,6 +16,11 @@ Available options:
    -b [BUS] specify I2C bus
    -a scan all addresses
    -r [FIRST-LAST] scan addresses between FIRST & LAST (int)
+   ** For MCUs **
+   -mmcu [MCU]
+   Supported MCUs :
+       - atmega328
+       - atmega2560
 ```
 
 * Scan I2C bus `/dev/i2c-1` for any available addresses:
@@ -37,6 +42,14 @@ Available options:
   ```
 
 # Installation
+## Linux Dependencies
+* gcc
+
+## AVR dependencies
+* avr-libc
+* gcc-avr
+* binutils-avr
+* avrdude
 ```
 # install
 $ sudo make install

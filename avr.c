@@ -138,9 +138,6 @@ static void probe_address(uint8_t i) {
         printf("Found device at I2C address: 0x%" PRIx8 " (%" PRIu8 ")\n", i, i);
     }
 #endif
-    else{
-        printf("No devices found");
-    }
 
     // flag stop condition on I2C bus
     i2c_stop();
@@ -158,15 +155,14 @@ int main() {
     // set I2C bus frequency
     i2c_set_freq();
 
-    //for (;;)
-    //{
+    for (;;)
+    {
         printf("Scanning I2C bus at 100 kHz\n");
         scan();
-        exit(EXIT_SUCCESS);
 
-      //  for (uint16_t i = 0; i < 30000; ++i)
-      //      _delay_ms(1);
-    //}
+        for (uint16_t i = 0; i < 30000; ++i)
+            _delay_ms(1);
+    }
 
     return 0;
 }

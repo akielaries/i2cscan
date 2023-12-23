@@ -7,7 +7,7 @@ BAUD_RATE = 115200
 BAUD_PRESCALE = F_CPU / (16 * BAUD_RATE) - 1
 
 # Source files
-SRC = i2c.c
+SRC = avr.c
 
 # Compiler and linker settings
 CC = avr-gcc
@@ -17,7 +17,7 @@ AVRDUDE = avrdude
 CFLAGS = -Wall -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -DBAUD=$(BAUD_RATE)
 
 # Name for the output files
-TARGET = i2c
+TARGET = avr
 HEX_FILE = $(TARGET).hex
 
 # Port and programmer settings for AVRDUDE

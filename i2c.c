@@ -3,6 +3,7 @@
 #include <util/setbaud.h>
 #include <stdio.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 #ifdef __AVR_ATmega328__
   #define UART_BAUD_RATE 38400
@@ -128,15 +129,18 @@ static void probe_address(uint8_t i) {
     i2c_set_address(i, 0);  // TW_WRITE
     // checks if address responds to ping
     if ((TWSR & 0xF8) == 0x18) {  // TW_MT_SLA_ACK
-        printf("Found device on address: 0x%02X (%d)\n", i, i);
+        printf("Found device at I2C address: 0x%02X (%d)\n", i, i);
     }
 
 #elif __AVR_ATmega328__
     i2c_set_address(i, TW_WRITE);
     if ((TWSR & TW_STATUS_MASK) == TW_MT_SLA_ACK) {
-        printf("Found device on address: 0x%" PRIx8 " (%" PRIu8 ")\n", i, i);
+        printf("Found device at I2C address: 0x%" PRIx8 " (%" PRIu8 ")\n", i, i);
     }
 #endif
+    else{
+        printf("No devices found");
+    }
 
     // flag stop condition on I2C bus
     i2c_stop();
@@ -154,14 +158,15 @@ int main() {
     // set I2C bus frequency
     i2c_set_freq();
 
-    for (;;)
-    {
-        printf("Scanning I2C bus at 100 kHz ...\n");
+    //for (;;)
+    //{
+        printf("Scanning I2C bus at 100 kHz\n");
         scan();
+        exit(EXIT_SUCCESS);
 
-        for (uint16_t i = 0; i < 30000; ++i)
-            _delay_ms(1);
-    }
+      //  for (uint16_t i = 0; i < 30000; ++i)
+      //      _delay_ms(1);
+    //}
 
     return 0;
 }

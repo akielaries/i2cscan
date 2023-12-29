@@ -1,0 +1,39 @@
+# Makefile
+
+TARGET = main
+SRC = main.c
+
+# Adjust these settings based on your STM32 model
+STM32_MODEL = STM32F4xx
+
+# Compiler and linker options
+CC		= arm-none-eabi-gcc
+OBJCOPY	= arm-none-eabi-objcopy
+LD 		= arm-none-eabi-ld
+CFLAGS 	= -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -mfloat-abi=hard -mfpu=fpv4-sp-d16
+LDFLAGS = -T linker.ld -specs=nosys.specs
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Build rules
+
+all: $(TARGET).elf $(TARGET).hex $(TARGET).bin
+
+$(TARGET).elf: $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+%.hex: %.elf
+	$(OBJCOPY) -O ihex $< $@
+
+%.bin: %.elf
+	$(OBJCOPY) -O binary $< $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: clean
+
+clean:
+	rm -f $(OBJ) $(TARGET).elf $(TARGET).hex $(TARGET).bin
+

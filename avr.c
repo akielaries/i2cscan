@@ -151,7 +151,7 @@ static void scan() {
 
 int main() {
     // setup UART transmission
-    setup_uart();
+/*    setup_uart();
     // set I2C bus frequency
     i2c_set_freq();
 
@@ -165,5 +165,31 @@ int main() {
     }
 
     return 0;
+    */
+    // Set Pin 7 (Arduino Mega Pin 13) as an output
+    DDRB |= (1 << PB7);
+
+    // Initialize UART
+    setup_uart();
+
+    // Print a welcome message
+    printf("UART Example: Hello, AVR!\n");
+
+    // Main loop
+    while (1) {
+        // Do some processing or tasks here
+        // For example, blink an LED every second
+
+        PORTB ^= (1 << PB7);
+        _delay_ms(100);      // Wait for 500 milliseconds
+
+
+        printf("We're looping... wait 1000ms\n");
+        _delay_ms(100);
+
+    }
+
+    return 0;
+
 }
 

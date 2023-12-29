@@ -21,7 +21,7 @@ TARGET = avr
 HEX_FILE = $(TARGET).hex
 
 # Port and programmer settings for AVRDUDE
-PORT = /dev/ttyACM0
+PORT = /dev/ttyACM1
 PROGRAMMER = wiring
 
 all: $(HEX_FILE)

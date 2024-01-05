@@ -144,6 +144,7 @@ void help() {
 
 // main driver featuring cmd line parsing
 int main (int argc, char *argv[]) {
+    /* FLAG VARIABLES */
     int flag_bus = 0, 
         flag_all_addrs = 0, 
         flag_range_addrs = 0, 
@@ -281,48 +282,6 @@ int main (int argc, char *argv[]) {
             exit(EXIT_FAILURE);
         }
     }
-
-    // -mmcu and -dev handling
-    if (flag_mmcu) {
-        if (!flag_dev) {
-            fprintf(stderr, "-mmcu requires -dev to specify the I2C bus\n");
-            usage(argv[0]);
-            exit(EXIT_FAILURE);
-        }
-
-        // Handle -mmcu options
-        if (strcmp(mmcu_option, "atmega2560") == 0) {
-            printf("Using %s\n", mmcu_option);
-            // Perform actions specific to ATmega2560
-            #define ATMEGA2560
-        } 
-
-        else if (strcmp(mmcu_option, "atmega328") == 0) {
-            printf("Using %s\n", mmcu_option);
-            // Perform actions specific to ATmega328
-            #define ATMEGA328
-        } 
-
-        else {
-            fprintf(stderr, "Invalid -mmcu option: %s\n", mmcu_option);
-            exit(EXIT_FAILURE);
-        }
-
-        // Handle -dev option
-        if (flag_dev) {
-            if (dev_path[0] != '\0') {
-                printf("Using device path: %s\n", dev_path);
-                // Perform actions with the device path
-            } else {
-                fprintf(stderr, "-dev option is required with -mmcu\n");
-                usage(argv[0]);
-                exit(EXIT_FAILURE);
-            }
-        }
-        compile_and_flash(mmcu_option, dev_path);
-        display_device_contents(dev_path);
-    }
-
     else {
         // FIXME
         usage(argv[0]);

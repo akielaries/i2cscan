@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['atmega2560_136',['ATMEGA2560',['../i2cscan_8c.html#aa7d4ca96f6fbc142ee9f52b95f8f026b',1,'i2cscan.c']]],
-  ['atmega328_137',['ATMEGA328',['../i2cscan_8c.html#ab023d028d123bc7e4496309d2b2b85c9',1,'i2cscan.c']]]
+  ['f_5fcpu_134',['F_CPU',['../uart2_8c.html#a43bafb28b29491ec7f871319b5a3b2f8',1,'uart2.c']]],
+  ['fdev_5fsetup_5fstream_135',['FDEV_SETUP_STREAM',['../uart_8h.html#a3ff7af26e9e2749d48925090ff63a8f0',1,'uart.h']]]
 ];

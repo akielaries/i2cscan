@@ -11,12 +11,12 @@ $ i2cscan -h
 Available options:
    -h help
    -v version
-   -l lists all available I2C busses
-   -f fetch all busses & available addresses
+   -l lists all available I2C busses (TODO)
+   -f fetch all busses & available addresses (TODO)
    -b [BUS] specify I2C bus
    -a scan all addresses
    -r [FIRST-LAST] scan addresses between FIRST & LAST (int)
-   ** For MCUs **
+   ** For MCUs ** (TODO)
    -mmcu= [MCU]
    Supported MCUs :
        - atmega328

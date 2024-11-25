@@ -4,6 +4,8 @@ but with a different approach. This utility was created from i2cdetect's inabili
 all addresses on a given bus, in this utility we write to each address on a given bus to determine
 if is alive therefore available for communication.
 
+There is a plan to make use of this on AVR and STM32 based devices but I haven't gotten
+around to it yet.
 # Usage
 ```bash
 $ i2cscan -h
